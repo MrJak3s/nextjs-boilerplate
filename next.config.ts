@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const withNextIntl = require('next-intl/plugin')();
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: ['skins.mcstats.com', 'minotar.net', 'api.mineatar.io', 'playerdb.co'],
+    unoptimized: true
+  }
 };
 
-export default nextConfig;
+module.exports = withNextIntl(nextConfig);
